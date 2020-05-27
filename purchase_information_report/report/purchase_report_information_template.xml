@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_purchase_custom">
+        <!-- <div class="header">
+            <div class="row">
+                <div class="col-xs-12" style="width:95%;">
+                    <t t-call="sale_order_custom_report.sale_order_custom_header"/>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="article o_report_layout_standard">
+            <t t-raw="0" />
+        </div>
+
+        <!-- <div class="footer">
+            <div class="row">
+                <div class="col-xs-12" style="width:95%;">
+                    <t t-call="sale_order_custom_report.sale_order_custom_footer"/>
+                </div>
+            </div>
+        </div> -->
+    </template>
+
+    <template id="external_layout">
+        <t t-call="purchase_information_report.external_layout_purchase_custom">
+            <t t-raw="0"/>
+        </t>
+
+    </template>
+
+    <template id="purchase_order_information_cover_page">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table-condensed table-bordered" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>NIT</th>
+                            <th>DV</th>
+                            <th>NOMBRE</th>
+                            <th>DIRECCIÓN</th>
+                            <th>TELÉFONO</th>
+                            <th>DEPARTAMENTO</th>
+                            <th>MUNICIPIO</th>
+                            <th>PRODUCTO</th>
+                            <th>KILOS</th>
+                            <th>VALOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="doc">
+                            <t t-foreach="doc.order_line" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span t-esc="doc.partner_id.partner_nit" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.partner_id.partner_dv" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.partner_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.partner_id.street" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.partner_id.phone" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.partner_id.state_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.partner_id.city" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.product_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.product_qty" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": user.company_id.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table-condensed table-bordered" style="width: 60%;font-size: 11px;margin: 0 auto;">
+                    <tr>
+                        <td style="width: 50%;">TOTAL CONSIGNACIÓN:</td>
+                        <td style="text-align:right">
+                            <span t-esc="data['form'].get('total')" t-options='{"widget": "monetary", "display_currency": user.company_id.currency_id}'/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">FECHA DE CONSIGNACIÓN:</td>
+                        <td>
+                            <span t-esc="data['form'].get('actual_date')"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">BANCO:</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">NIT:</td>
+                        <td>
+                            <span t-esc="user.company_id.main_id_number" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">NOMBRE RECAUDADOR</td>
+                        <td>
+                            <span t-esc="user.company_id.name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">PERIODO</td>
+                        <td>
+                            <span t-esc="data['form'].get('periodo')"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-xs-12 text-left">
+                <table class="table-condensed" style="width: 100%">
+                    <tr>
+                        <td style="width:24%;padding-top: 20px;">REPRESENTANTE LEGAL:</td>
+                        <td style="padding-left: 0px;">
+                            <img t-if="data['form'].get('signature')" t-att-src="'data:image/png;base64,%s' % to_text(user.digital_signature)" style="height:40px;width:250px;" />
+                            <t t-else="">___________________________________</t>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </template>
+
+    <template id="purchase_order_information_document">
+        <t t-call="purchase_information_report.external_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="row">
+                    <div class="col-xs-12" style="width:95%;">
+                        <t t-call="purchase_information_report.purchase_order_information_cover_page"/>
+                    </div>
+                </div>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_purchase_information">
+        <t t-call="web.html_container">
+            <t t-call="purchase_information_report.purchase_order_information_document"/>
+        </t>
+    </template>
+</odoo>

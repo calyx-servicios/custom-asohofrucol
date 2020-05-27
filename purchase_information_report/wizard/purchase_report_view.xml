@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="purchase_report_custom_form_view" model="ir.ui.view">
+        <field name="name">Reporte de Informacion Compras</field>
+        <field name="model">purchase.order.information.report</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Reporte de Informacion">
+                <div>
+                    <group>
+                        <group>
+                            <!-- <field name="start_date" /> -->
+                            <field name="periodo_mes" />
+                            <field name="periodo_year" />
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="report_sign" />
+                        </group>
+                    </group>
+                </div>
+                <footer>
+                    <button name="generated_excel_report" string="Generar .xls" type="object" class="oe_highlight"/>
+                    <button name="print_purchase_information_report" string="Generar .pdf" type="object" class="oe_highlight"/>
+                    <button special="cancel" string="Cancelar" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_purchase_report_custom" model="ir.actions.act_window">
+        <field name="name">Reporte de Informacion</field>
+        <field name="res_model">purchase.order.information.report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_type">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_purchase_report_custom" action="action_purchase_report_custom" parent="purchase.menu_purchase_root"/>
+
+    <record id="wizard_purchase_report_form_view" model="ir.ui.view">
+        <field name="name">Wizard Reporte</field>
+        <field name="model">wizard.purchase.order.information.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" invisible="1"/>
+                    <h1>
+                        <field name="report" filename="name"/>
+                    </h1>
+                </group>
+                <footer>
+                    <button special="cancel" string="Cancelar" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
