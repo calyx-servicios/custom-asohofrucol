@@ -259,9 +259,9 @@ class PurchaseOrderReportCustom(models.TransientModel):
         # CONSTRUCCION DE DATA FORM
         # ##########################
         total_consig = 0
-        for purchase in purchase_order:
-            for line in purchase.order_line:
-                total_consig += line.price_subtotal
+        # for purchase in purchase_order:
+        #     for line in purchase.order_line:
+        #         total_consig += line.price_subtotal
 
         periodo = dict(self._fields["periodo_mes"].selection).get(
             self.periodo_mes
