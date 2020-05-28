@@ -8,3 +8,4 @@ class ResPartner(models.Model):
 
     partner_nit = fields.Char(string="NIT")
     partner_dv = fields.Char(string="Digito de Verificacion")
+    partner_banco = fields.Char(string="Banco")

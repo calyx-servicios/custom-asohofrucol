@@ -233,8 +233,7 @@ class PurchaseOrderReportCustom(models.TransientModel):
     @api.multi
     def print_purchase_information_report(self):
         self.ensure_one()
-        data = self.read()[0]
-
+        data = {}
         # ##################
         # VALIDACION FIRMA
         # ##################

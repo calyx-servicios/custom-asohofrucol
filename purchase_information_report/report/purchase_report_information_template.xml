@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <t t-foreach="docs" t-as="doc">
+                        <!-- <t t-foreach="docs" t-as="doc">
                             <t t-foreach="doc.order_line" t-as="line">
                                 <tr>
                                     <td>
@@ -84,7 +84,7 @@
                                     </td>
                                 </tr>
                             </t>
-                        </t>
+                        </t> -->
                     </tbody>
                 </table>
             </div>

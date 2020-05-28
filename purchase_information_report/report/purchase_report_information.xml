@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="paperformat_purchase_information_report" model="report.paperformat">
+        <field name="name">Purchase Information Report</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">25</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
     <report 
         id="action_purchase_information_report"
         string="Purchase Information Report"
         model="purchase.order" 
         report_type="qweb-pdf"
+        paperformat="purchase_information_report.paperformat_purchase_information_report"
         file="purchase_information_report.report_purchase_information" 
         name="purchase_information_report.report_purchase_information"
         menu="False"
