@@ -39,7 +39,7 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="menu_purchase_report_custom" action="action_purchase_report_custom" parent="purchase.menu_purchase_root"/>
+    <menuitem id="menu_purchase_report_custom" action="action_purchase_report_custom" parent="account.menu_finance_payables_documents"/>
 
     <record id="wizard_purchase_report_form_view" model="ir.ui.view">
         <field name="name">Wizard Reporte</field>
