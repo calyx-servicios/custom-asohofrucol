@@ -240,12 +240,7 @@ class PurchaseOrderReportCustom(models.TransientModel):
         user = self.env["res.users"].browse(self._uid)
         if self.report_sign:
             if user.digital_signature is None:
-                warning_mess = {
-                    "title": _("¡Usuario sin firma!"),
-                    "message": _("Debe definir su firma."),
-                }
-                return {"warning": warning_mess}
-                # raise UserError("Debe definir su firma")
+                raise UserError("Debe definir su firma")
 
         # #######
         # FECHAS
