@@ -251,6 +251,8 @@ class PurchaseOrderReportCustom(models.TransientModel):
         # ##################
         # ORDENES DE COMPRA
         # ##################
+        _logger.debug("=======ESTA AQUI==========")
+        _logger.debug("**=======SEARCH PURCHASE==========**")
         purchase_order = self.env["purchase.order"].search(
             [("date_order", ">=", date_start), ("date_order", "<=", date_end)]
         )
@@ -258,10 +260,12 @@ class PurchaseOrderReportCustom(models.TransientModel):
         # ##########################
         # CONSTRUCCION DE DATA FORM
         # ##########################
+        _logger.debug("=======ESTA AQUI==========")
+        _logger.debug("**=======TOTALES==========**")
         total_consig = 0
-        # for purchase in purchase_order:
-        #     for line in purchase.order_line:
-        #         total_consig += line.price_subtotal
+        for purchase in purchase_order:
+            for line in purchase.order_line:
+                total_consig += line.price_subtotal
 
         periodo = dict(self._fields["periodo_mes"].selection).get(
             self.periodo_mes
@@ -282,6 +286,8 @@ class PurchaseOrderReportCustom(models.TransientModel):
         # ############
         # CALL REPORT
         # ############
+        _logger.debug("=======ESTA AQUI==========")
+        _logger.debug("**=======CALL REPORT==========**")
         return self.env.ref(
             "purchase_information_report.action_purchase_information_report"
         ).report_action(self, data=datas)

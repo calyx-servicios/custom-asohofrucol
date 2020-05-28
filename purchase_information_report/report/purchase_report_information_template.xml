@@ -33,7 +33,7 @@
     <template id="purchase_order_information_cover_page">
         <div class="row">
             <div class="col-xs-12">
-                <table class="table-condensed table-bordered" style="width: 100%">
+                <table class="table table-condensed table-bordered" style="width: 100%">
                     <thead>
                         <tr>
                             <th>NIT</th>
@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <t t-foreach="docs" t-as="doc">
+                        <t t-foreach="docs" t-as="doc">
                             <t t-foreach="doc.order_line" t-as="line">
                                 <tr>
                                     <td>
@@ -84,7 +84,7 @@
                                     </td>
                                 </tr>
                             </t>
-                        </t> -->
+                        </t>
                     </tbody>
                 </table>
             </div>
@@ -93,7 +93,7 @@
         <br/>
         <div class="row">
             <div class="col-xs-12">
-                <table class="table-condensed table-bordered" style="width: 60%;font-size: 11px;margin: 0 auto;">
+                <table class="table table-condensed table-bordered" style="width: 60%;font-size: 11px;margin: 0 auto;">
                     <tr>
                         <td style="width: 50%;">TOTAL CONSIGNACIÓN:</td>
                         <td style="text-align:right">
