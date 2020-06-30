@@ -1,36 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="external_layout_purchase_custom">
-        <!-- <div class="header">
-            <div class="row">
-                <div class="col-xs-12" style="width:95%;">
-                    <t t-call="sale_order_custom_report.sale_order_custom_header"/>
-                </div>
-            </div>
-        </div> -->
-
+    <template id="external_layout_account_info_custom">
         <div class="article o_report_layout_standard">
             <t t-raw="0" />
         </div>
-
-        <!-- <div class="footer">
-            <div class="row">
-                <div class="col-xs-12" style="width:95%;">
-                    <t t-call="sale_order_custom_report.sale_order_custom_footer"/>
-                </div>
-            </div>
-        </div> -->
     </template>
 
     <template id="external_layout">
-        <t t-call="purchase_information_report.external_layout_purchase_custom">
+        <t t-call="account_information_report.external_layout_account_info_custom">
             <t t-raw="0"/>
         </t>
 
     </template>
 
-    <template id="purchase_order_information_cover_page">
+    <template id="account_information_cover_page">
         <div class="row">
             <div class="col-xs-12">
                 <table class="table table-condensed table-bordered" style="width: 100%">
@@ -50,7 +34,7 @@
                     </thead>
                     <tbody>
                         <t t-foreach="docs" t-as="doc">
-                            <t t-foreach="doc.order_line" t-as="line">
+                            <t t-foreach="doc.invoice_line_ids" t-as="line">
                                 <tr>
                                     <td>
                                         <span t-esc="doc.partner_id.partner_nit" />
@@ -77,7 +61,7 @@
                                         <span t-esc="line.product_id.name" />
                                     </td>
                                     <td>
-                                        <span t-esc="line.product_qty" />
+                                        <span t-esc="line.quantity" />
                                     </td>
                                     <td>
                                         <span t-esc="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": user.company_id.currency_id}'/>
@@ -108,7 +92,9 @@
                     </tr>
                     <tr>
                         <td style="width: 50%;">BANCO:</td>
-                        <td></td>
+                        <td>
+                            <span t-esc="data['form'].get('banco')"/>
+                        </td>
                     </tr>
                     <tr>
                         <td style="width: 50%;">NIT:</td>
@@ -148,13 +134,13 @@
         </div>
     </template>
 
-    <template id="purchase_order_information_document">
-        <t t-call="purchase_information_report.external_layout">
+    <template id="account_information_document">
+        <t t-call="account_information_report.external_layout">
             <div class="page">
                 <div class="oe_structure"/>
                 <div class="row">
                     <div class="col-xs-12" style="width:95%;">
-                        <t t-call="purchase_information_report.purchase_order_information_cover_page"/>
+                        <t t-call="account_information_report.account_information_cover_page"/>
                     </div>
                 </div>
                 <div class="oe_structure"/>
@@ -162,9 +148,9 @@
         </t>
     </template>
 
-    <template id="report_purchase_information">
+    <template id="report_account_information">
         <t t-call="web.html_container">
-            <t t-call="purchase_information_report.purchase_order_information_document"/>
+            <t t-call="account_information_report.account_information_document"/>
         </t>
     </template>
 </odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_account_information_report_tree">
+            <field name="name">Account Invoice Report Line</field>
+            <field name="model">account.information.line.report</field>
+            <field name="arch" type="xml">
+                <tree string="Account Invoice Report Line">
+                    <field name="partner_nit" />
+                    <field name="partner_dv" />
+                    <field name="partner_name" />
+                    <field name="partner_street" />
+                    <field name="partner_phone" />
+                    <field name="partner_state" />
+                    <field name="partner_city" />
+                    <field name="product_id" options="{'no_create': True}"/>
+                    <field name="product_qty" />
+                    <field name="currency_id" invisible="1"/>
+                    <field name="amount" sum="Total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_information_report_act" model="ir.actions.act_window">
+            <field name="name">Account Invoice Report Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.information.line.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+
+            <!-- <field name="search_view_id" ref="view_easy_invoice_analysis_report_filter" /> -->
+            <!-- <field name="context">{
+                "search_default_valid_current_state":1
+                }
+            </field> -->
+            <field name="help" type="html">
+                <p>
+                You will find here all Account Invoice Lines
+                </p>
+
+            </field>
+        </record>
+    </data>
+</odoo>

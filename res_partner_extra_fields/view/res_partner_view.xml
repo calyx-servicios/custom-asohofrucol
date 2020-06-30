@@ -10,7 +10,6 @@
                 <xpath expr="//field[@name='function']" position="before">
                     <field name="partner_nit"/>
                     <field name="partner_dv"/>
-                    <field name="partner_banco"/>
                 </xpath>
             </field>
         </record>

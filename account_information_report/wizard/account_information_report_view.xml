@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <record id="purchase_report_custom_form_view" model="ir.ui.view">
-        <field name="name">Reporte de Informacion Compras</field>
-        <field name="model">purchase.order.information.report</field>
+    <record id="account_report_custom_form_view" model="ir.ui.view">
+        <field name="name">Reporte de Informacion</field>
+        <field name="model">account.information.report</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Reporte de Informacion">
                 <div>
                     <group>
                         <group>
-                            <!-- <field name="start_date" /> -->
                             <field name="periodo_mes" />
                             <field name="periodo_year" />
+                            <field name="report_bank" options="{'no_create': True, 'no_create_edit':True}"/>
                         </group>
                     </group>
                     <group>
@@ -23,27 +23,28 @@
                 </div>
                 <footer>
                     <button name="generated_excel_report" string="Generar .xls" type="object" class="oe_highlight"/>
-                    <button name="print_purchase_information_report" string="Generar .pdf" type="object" class="oe_highlight"/>
+                    <button name="print_account_information_report" string="Generar .pdf" type="object" class="oe_highlight"/>
+                    <button name="generated_account_information_line" string="Ver reporte" type="object" class="oe_highlight" />
                     <button special="cancel" string="Cancelar" class="oe_link"/>
                 </footer>
             </form>
         </field>
     </record>
 
-    <record id="action_purchase_report_custom" model="ir.actions.act_window">
+    <record id="action_account_report_custom" model="ir.actions.act_window">
         <field name="name">Reporte de Informacion</field>
-        <field name="res_model">purchase.order.information.report</field>
+        <field name="res_model">account.information.report</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_mode">form</field>
         <field name="view_type">form</field>
         <field name="target">new</field>
     </record>
 
-    <menuitem id="menu_purchase_report_custom" action="action_purchase_report_custom" parent="account.menu_finance_payables_documents"/>
+    <menuitem id="menu_account_report_custom" action="action_account_report_custom" parent="account.menu_finance_payables_documents"/>
 
-    <record id="wizard_purchase_report_form_view" model="ir.ui.view">
+    <record id="wizard_account_report_form_view" model="ir.ui.view">
         <field name="name">Wizard Reporte</field>
-        <field name="model">wizard.purchase.order.information.report</field>
+        <field name="model">wizard.account.information.report</field>
         <field name="arch" type="xml">
             <form>
                 <group>
