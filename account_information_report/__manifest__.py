@@ -18,12 +18,7 @@
     "installable": True,
     "external_dependencies": {"python": [], "bin": []},
     # any module necessary for this one to work correctly
-    "depends": [
-        "base",
-        "account",
-        "web_digital_sign",
-        "res_partner_extra_fields",
-    ],
+    "depends": ["base", "account", "web_digital_sign", "res_partner_extend"],
     "data": [
         "wizard/account_information_report_view.xml",
         "report/account_information_template.xml",
