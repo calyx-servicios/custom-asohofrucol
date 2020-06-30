@@ -6,6 +6,7 @@
             <field name="model">account.information.line.report</field>
             <field name="arch" type="xml">
                 <tree string="Account Invoice Report Line">
+                    <field name="date" invisible="1"/>
                     <field name="partner_nit" />
                     <field name="partner_dv" />
                     <field name="partner_name" />
@@ -21,18 +22,42 @@
             </field>
         </record>
 
+        <record id="view_account_information_report_filter" model="ir.ui.view">
+            <field name="name">Account Invoice Report Line Filters</field>
+            <field name="model">account.information.line.report</field>
+            <field name="arch" type="xml">
+                <search string="Search Account Information Line">
+                    <field name="date" />
+                    <field name="product_id" />
+                    <field name="partner_nit" />
+                    <field name="partner_dv" />
+                    <field name="partner_name" />
+                    <field name="partner_street" />
+                    <field name="partner_phone" />
+                    <field name="partner_state" />
+                    <field name="partner_city" />
+
+                    <separator />
+
+                    <group expand="0" string="Group By">
+                        <filter string="Partner" icon="terp-partner" domain="[]" context="{'group_by':'partner_name'}" />
+                        <filter string="Nit" icon="terp-partner" domain="[]" context="{'group_by':'partner_nit'}" />
+                        <filter string="DV" icon="terp-partner" domain="[]" context="{'group_by':'partner_dv'}" />
+                        <filter string="Product" icon="terp-partner" domain="[]" context="{'group_by':'product_id'}" />
+                        <filter string="State" icon="terp-partner" domain="[]" context="{'group_by':'partner_state'}" />
+                        <filter string="City" icon="terp-partner" domain="[]" context="{'group_by':'partner_city'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
         <record id="account_information_report_act" model="ir.actions.act_window">
             <field name="name">Account Invoice Report Line</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">account.information.line.report</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form,pivot,graph</field>
-
-            <!-- <field name="search_view_id" ref="view_easy_invoice_analysis_report_filter" /> -->
-            <!-- <field name="context">{
-                "search_default_valid_current_state":1
-                }
-            </field> -->
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_account_information_report_filter" />
             <field name="help" type="html">
                 <p>
                 You will find here all Account Invoice Lines

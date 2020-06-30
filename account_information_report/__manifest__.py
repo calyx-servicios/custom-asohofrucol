@@ -25,5 +25,6 @@
         "report/account_report_information.xml",
         "view/account_res_bank_view.xml",
         "view/account_information_line_view.xml",
+        "security/ir.model.access.csv",
     ],
 }

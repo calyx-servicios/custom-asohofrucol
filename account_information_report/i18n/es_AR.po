@@ -1,0 +1,277 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_information_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-30 20:22+0000\n"
+"PO-Revision-Date: 2020-06-30 20:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_information_report
+#: model:ir.model,name:account_information_report.model_account_information_line_report
+msgid " Account SQL Information Report"
+msgstr " Reporte de Informacion SQL"
+
+#. module: account_information_report
+#: model:ir.actions.report,name:account_information_report.action_account_information_report
+msgid "Account Information Report"
+msgstr "Reporte de Informacion"
+
+#. module: account_information_report
+#: model:ir.actions.act_window,name:account_information_report.account_information_report_act
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_tree
+msgid "Account Invoice Report Line"
+msgstr "Reporte de informacion"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "BANCO:"
+msgstr "BANCO:"
+
+#. module: account_information_report
+#: model:ir.ui.menu,name:account_information_report.menu_action_account_bank_form
+msgid "Banks"
+msgstr "Bancos"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_report_custom_form_view
+#: model:ir.ui.view,arch_db:account_information_report.wizard_account_report_form_view
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_partner_city_9870
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_filter
+msgid "City"
+msgstr "Ciudad"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_currency_id_9873
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "DEPARTAMENTO"
+msgstr "DEPARTAMENTO"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "DIRECCIÓN"
+msgstr "DIRECCIÓN"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_filter
+msgid "DV"
+msgstr "DV"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_date_9863
+msgid "Date"
+msgstr "Fecha"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_display_name_9875
+#: model:ir.model.fields,field_description:account_information_report.field_report_account_information_report_report_account_information_display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "FECHA DE CONSIGNACIÓN:"
+msgstr "FECHA DE CONSIGNACIÓN:"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_report_custom_form_view
+msgid "Generar .pdf"
+msgstr "Generar .pdf"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_report_custom_form_view
+msgid "Generar .xls"
+msgstr "Generar .xls"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_filter
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_report_account_information_report_report_account_information_id
+msgid "ID"
+msgstr "ID"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "KILOS"
+msgstr "KILOS"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_product_qty_9872
+msgid "Kg"
+msgstr "Kg"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report___last_update_9876
+#: model:ir.model.fields,field_description:account_information_report.field_report_account_information_report_report_account_information___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "MUNICIPIO"
+msgstr "MUNICIPIO"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "NIT"
+msgstr "NIT"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "NIT:"
+msgstr "NIT:"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "NOMBRE"
+msgstr "NOMBRE"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "NOMBRE RECAUDADOR"
+msgstr "NOMBRE RECAUDADOR"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_partner_name_9866
+msgid "Name"
+msgstr "Nombre"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_partner_nit_9864
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_filter
+msgid "Nit"
+msgstr "Nit"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "PERIODO"
+msgstr "PERIODO"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "PRODUCTO"
+msgstr "PRODUCTO"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_filter
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_partner_phone_9868
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_product_id_9871
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_filter
+msgid "Product"
+msgstr "Producto"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "REPRESENTANTE LEGAL:"
+msgstr "REPRESENTANTE LEGAL:"
+
+#. module: account_information_report
+#: code:addons/account_information_report/wizard/account_information_report.py:230
+#: code:addons/addons/addons-custom/custom-asohofrucol/account_information_report/wizard/account_information_report.py:230
+#: model:ir.actions.act_window,name:account_information_report.action_account_report_custom
+#: model:ir.ui.menu,name:account_information_report.menu_account_report_custom
+#: model:ir.ui.view,arch_db:account_information_report.account_report_custom_form_view
+#, python-format
+msgid "Reporte de Informacion"
+msgstr "Reporte de Informacion"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_filter
+msgid "Search Account Information Line"
+msgstr "Busqueda en lineas de reporte de informacion"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_partner_state_9869
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_filter
+msgid "State"
+msgstr "Estado"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_partner_street_9867
+msgid "Street"
+msgstr "Calle"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "TELÉFONO"
+msgstr "TELÉFONO"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "TOTAL CONSIGNACIÓN:"
+msgstr "TOTAL CONSIGNACIÓN:"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_amount_9874
+#: model:ir.ui.view,arch_db:account_information_report.view_account_information_report_tree
+msgid "Total"
+msgstr "Total"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "VALOR"
+msgstr "VALOR"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_report_custom_form_view
+msgid "Ver reporte"
+msgstr "Ver reporte"
+
+#. module: account_information_report
+#: model:ir.model.fields,field_description:account_information_report.field_account_information_line_report_partner_dv_9865
+msgid "Verification Digit"
+msgstr "Digito de Verificacion"
+
+#. module: account_information_report
+#: model:ir.actions.act_window,help:account_information_report.account_information_report_act
+msgid "You will find here all Account Invoice Lines"
+msgstr "Aca encontrara las lineas del reporte de informacion"
+
+#. module: account_information_report
+#: model:ir.ui.view,arch_db:account_information_report.account_information_cover_page
+msgid "___________________________________"
+msgstr "___________________________________"
+
+#. module: account_information_report
+#: model:ir.model,name:account_information_report.model_account_information_report
+msgid "account.information.report"
+msgstr "account.information.report"
+
+#. module: account_information_report
+#: model:ir.model,name:account_information_report.model_report_account_information_report_report_account_information
+msgid "report.account_information_report.report_account_information"
+msgstr "report.account_information_report.report_account_information"
+
+#. module: account_information_report
+#: model:ir.model,name:account_information_report.model_wizard_account_information_report
+msgid "wizard.account.information.report"
+msgstr "wizard.account.information.report"
+

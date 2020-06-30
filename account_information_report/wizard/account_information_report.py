@@ -6,7 +6,6 @@ import xlwt
 import base64
 import calendar
 from datetime import datetime
-
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -15,11 +14,6 @@ _logger = logging.getLogger(__name__)
 class AccountReportCustom(models.TransientModel):
     _name = "account.information.report"
 
-    start_date = fields.Date(
-        string="Period Start",
-        # required=True,
-        default=datetime.today().replace(day=1),
-    )
     periodo_mes = fields.Selection(
         [
             (1, "ENERO"),
@@ -35,19 +29,19 @@ class AccountReportCustom(models.TransientModel):
             (11, "NOVIEMBRE"),
             (12, "DICIEMBRE"),
         ],
-        string="Period Month",
+        string="Periodo",
         required=True,
         default=1,
     )
     periodo_year = fields.Selection(
         [(num, str(num)) for num in range(2018, (datetime.now().year) + 1)],
-        string="Period Year",
+        string="Año",
         required=True,
         default=datetime.now().year,
     )
 
-    report_bank = fields.Many2one("res.bank", string="Bank")
-    report_sign = fields.Boolean(string="¿Sign pdf?", default=False)
+    report_bank = fields.Many2one("res.bank", string="Banco")
+    report_sign = fields.Boolean(string="¿Firmar Pdf?", default=False)
 
     @api.multi
     def generated_excel_report(self, record):
@@ -66,6 +60,7 @@ class AccountReportCustom(models.TransientModel):
                 ("date_invoice", ">=", date_start),
                 ("date_invoice", "<=", date_end),
                 ("journal_id.type", "=", "purchase"),
+                ("state", "in", ("open", "paid")),
             ]
         )
 
@@ -263,6 +258,7 @@ class AccountReportCustom(models.TransientModel):
                 ("date_invoice", ">=", date_start),
                 ("date_invoice", "<=", date_end),
                 ("journal_id.type", "=", "purchase"),
+                ("state", "in", ("open", "paid")),
             ]
         )
 
@@ -307,8 +303,10 @@ class AccountReportCustom(models.TransientModel):
         # #######
         # FECHAS
         # #######
-        date = str(self.periodo_year) + "-" + str(self.periodo_mes) + "-01"
-        date_start, date_end = self._format_dates(date)
+        date_start = (
+            str(self.periodo_year) + "-" + str(self.periodo_mes) + "-01"
+        )
+        date_end = self._last_day_str(date_start)
 
         view_tree = self.env.ref(
             "account_information_report.view_account_information_report_tree"
@@ -322,9 +320,10 @@ class AccountReportCustom(models.TransientModel):
         return {
             "type": "ir.actions.act_window",
             "name": "Account Information Report",
-            "views": [[view_tree, "tree"]],
+            "views": [[view_tree, "tree"], [False, "form"]],
             "res_model": "account.information.line.report",
             "target": "current",
+            "domain": [("date", ">=", date_start), ("date", "<=", date_end)],
             "context": ctx,
         }
 
@@ -342,8 +341,6 @@ class AccountReportCustom(models.TransientModel):
         # FORMATO FECHA FIN
         # ##################
         last_day = calendar.monthrange(date1.year, date1.month)[1]
-        # _logger.debug("*------------ACA--------*")
-        # _logger.debug("aqui: %s", last_day)
         end_date = date1.replace(day=last_day)
 
         my_time = datetime.max.time()
@@ -351,6 +348,19 @@ class AccountReportCustom(models.TransientModel):
         date_end = datetime.strftime(datee, "%Y-%m-%d %H:%M:%S.%f")
 
         return date_start, date_end
+
+    def _last_day_str(self, start_date):
+
+        date = datetime.strptime(start_date, "%Y-%m-%d")
+
+        # ##################
+        # FORMATO FECHA FIN
+        # ##################
+        last_day = calendar.monthrange(date.year, date.month)[1]
+        end_date = date.replace(day=last_day)
+        date_end = datetime.strftime(end_date, "%Y-%m-%d")
+
+        return date_end
 
 
 class WizardReportedeInformacion(models.TransientModel):

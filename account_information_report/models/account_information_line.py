@@ -38,10 +38,9 @@ class AccountInformationReportLine(models.Model):
     )
 
     def _get_dates_context(self):
-        context = self.env.context
-        _logger.debug("===>%r", context)
-        date_start = datetime.today()
-        date_end = datetime.today()
+        date_start = datetime.today().strftime("%Y-%m-%d")
+        date_end = datetime.today().strftime("%Y-%m-%d")
+
         if self._context.get("date_start"):
             date_start = self._context.get("date_start")
         if self._context.get("date_end"):
@@ -78,26 +77,23 @@ class AccountInformationReportLine(models.Model):
         ON i.journal_id = acj.id
         JOIN res_country_state rcs ON
         rp.state_id = rcs.id
-        WHERE acj.type = 'purchase' 
-        AND date_invoice BETWEEN %s AND
-        %s
+        WHERE acj.type = 'purchase' AND
+        (i.state = 'open' OR i.state = 'paid') 
+        -- AND i.date_invoice BETWEEN %s AND
+        -- %s
                 """
         return query
 
     def _init_account_information_line_view(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
 
-        # query_account_params = (
-        #     date_start,
-        #     "2020-05-28",
-        # )
-        query_account_params = self._get_dates_context()
+        # query_account_params = self._get_dates_context()
         self.env.cr.execute(
             """CREATE VIEW %s AS (
             %s
         )"""
             % (self._table, self._select()),
-            query_account_params,
+            # query_account_params,
         )
 
     @api.model_cr
