@@ -67,15 +67,14 @@ class AccountInformationReportLine(models.Model):
     i.currency_id AS currency_id,
     l_1.price_subtotal AS amount
     FROM account_invoice i
-        JOIN account_invoice_line l_1 ON i.id = l_1.invoice_id
-        INNER JOIN account_move m ON i.move_id = m.id
+        INNER JOIN account_invoice_line l_1 ON i.id = l_1.invoice_id
         INNER JOIN product_product p
         ON l_1.product_id = p.id
         INNER JOIN res_partner rp ON 
         i.partner_id = rp.id
         INNER JOIN account_journal acj
         ON i.journal_id = acj.id
-        JOIN res_country_state rcs ON
+        FULL JOIN res_country_state rcs ON
         rp.state_id = rcs.id
         WHERE acj.type = 'purchase' AND
         (i.state = 'open' OR i.state = 'paid') 
