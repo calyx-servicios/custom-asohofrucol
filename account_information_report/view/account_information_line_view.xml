@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                 <tree string="Account Invoice Report Line">
                     <field name="date" invisible="1"/>
+                    <field name="invoice_id" invisible="1"/>
                     <field name="partner_nit" />
                     <field name="partner_dv" />
                     <field name="partner_name" />
@@ -28,6 +29,7 @@
             <field name="arch" type="xml">
                 <search string="Search Account Information Line">
                     <field name="date" />
+                    <field name="invoice_id" />
                     <field name="product_id" />
                     <field name="partner_nit" />
                     <field name="partner_dv" />
@@ -40,6 +42,7 @@
                     <separator />
 
                     <group expand="0" string="Group By">
+                        <filter string="Invoice" icon="terp-partner" domain="[]" context="{'group_by':'invoice_id'}" />
                         <filter string="Partner" icon="terp-partner" domain="[]" context="{'group_by':'partner_name'}" />
                         <filter string="Nit" icon="terp-partner" domain="[]" context="{'group_by':'partner_nit'}" />
                         <filter string="DV" icon="terp-partner" domain="[]" context="{'group_by':'partner_dv'}" />

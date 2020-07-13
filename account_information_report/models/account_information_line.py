@@ -37,6 +37,8 @@ class AccountInformationReportLine(models.Model):
         string="Total", store=True, digits=(16, 2), default=0, readonly=True
     )
 
+    invoice_id = fields.Many2one("account.invoice", string="Invoice")
+
     def _get_dates_context(self):
         date_start = datetime.today().strftime("%Y-%m-%d")
         date_end = datetime.today().strftime("%Y-%m-%d")
@@ -54,6 +56,7 @@ class AccountInformationReportLine(models.Model):
     NULL::integer AS create_uid,
     NULL::timestamp without time zone AS write_date,
     NULL::integer AS write_uid,
+    i.id AS invoice_id,
     i.date_invoice AS date,
     rp.partner_nit AS partner_nit,
     rp.partner_dv AS partner_dv,
